@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="/python3tutorial/texts/basicpython/"/>
+
+  <!-- Basic meta elements -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+
+  <!--   Dublin Core metadata for Zotero -->  
+  <meta name="DC.title" content="Basic Python3" />
+  <meta name="DC.creator" content="sawangpong" />
+  <meta name="DC.contributor" content="Sawangpong muadphet" />
+  <meta name="DC.date" content="2018" />
+  <meta name="DC.rights" content="" />
+  <meta name="DC.source" content="หลักสูตร Python 3" />
+  
+    <!-- Open Graph metadata -->
+
+    
+    <meta property="og:title" content="Basic Python3"/>
+    <meta property="og:description" content="An Ed edition">
+    <meta property="fb:admins" content="elotroalex"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:4000/python3tutorial/texts/basicpython/"/>
+    <meta property="fb:app_id" content="589495744558280"/>
+    <meta property="og:image" content="http://localhost:4000/python3tutorial/assets/open-graph-logo.png"/>
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+   
+  <title>
+    
+      Basic Python3
+    
+  </title>
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/python3tutorial/assets/css/style.css"/>
+ 
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/python3tutorial/assets/apple-touch-icon-precomposed.png"/>
+  <link rel="shortcut icon" href="/python3tutorial/assets/favicon.ico"/>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/python3tutorial/atom.xml"/>
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Basic Python3</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/python3tutorial/">Home</a>
+    <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>    
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#hello-world">hello world</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#variables-and-types">Variables and Types</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#lists">Lists</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#string">String</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#condition">Condition</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#functions">Functions</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#classes-and-object">Classes and Object</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#dictionaries">Dictionaries</a>
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+     Edited by Sawangpong muadphet, 2018.
+    </p>
+  </div>
+</div>
+
+    
+
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/python3tutorial/" title="Home">หลักสูตร Python 3</a>
+            <br><small>software development python 3</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content" id="main">
+        <div class="narrative">
+  <h1 class="text-title">Basic Python3</h1>
+  <p class="citation"> by sawangpong</p>
+  <h2 id="hello-world">hello world</h2>
+<p>ภาษาpython สามารถทำงานได้ทันทีโดยไม่ต้องมีการ compile ยกตัวอย่างการใช้งานคำสั่ง print() เพื่อส่งข้อความออกแสดงผลทางหน้าจอ</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3
+Python 3.6.3 (default, Oct  3 2017, 21:45:48)
+[GCC 7.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; print("hello world")
+hello world
+&gt;&gt;&gt;
+</code></pre></div></div>
+
+<h4 id="คำสั่ง-dir-help">คำสั่ง dir, help</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string = "string"
+dir(string)
+help(string.count)
+</code></pre></div></div>
+<h4 id="comment">comment</h4>
+<p>การ comment จะทำให้ python ไม่ทำการประมวลผลบรรทัดดังกล่าว ด้วย</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># comment
+</code></pre></div></div>
+
+<h4 id="indentation">indentation</h4>
+<p>เนื่องจากภาษาไพทอน ไม่มีการใช้ {} เพื่อแสดง code block แต่จะมีการใช้ ย่อหน้า indentation โดยทั่วไปจะตั้งไว้ 4 spaces</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 1
+if x == 1:
+    # indented four spaces
+    print("x is 1.")
+</code></pre></div></div>
+
+<h4 id="หลักการของ-mutable-vs-immutable">หลักการของ Mutable vs Immutable</h4>
+<ul>
+  <li>Mutable  เราสามารถเปลี่ยนแปลง object ได้โดยที่ ไม่ต้องมีการเปลี่ยนค่า id</li>
+  <li>Immutable เราไม่สามารถเปลี่ยน object โดยที่ไม่เปลี่ยน id ดังนั้นเมื่อมีการเปลี่ยน object id จะเปลี่ยนด้วย</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Immutable
+myval = "python"
+id(myval)
+
+myval = "love python"
+id(myval)
+
+# Mutable
+mylist = []
+id(mylist)
+
+mylist.append("hello")
+id(mylist)
+</code></pre></div></div>
+
+<h2 id="variables-and-types">Variables and Types</h2>
+<p>ภาษาpython เป็นภาษาเชิง object oriented และเป็น Dynamic Type โดยไม่จำเป็นต้องมีการประกาศชนิดของตัวแปรเอาไว้ก่อน เพราะทุกๆ ตัวแปรของ python เป็น object</p>
+
+<h4 id="integer">Integer</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myint = 7
+print(myint)
+</code></pre></div></div>
+<h4 id="floating">floating</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myfloat = 7.0
+print(myfloat)
+myfloat = float(7)
+print(myfloat)
+</code></pre></div></div>
+
+<h4 id="string">String</h4>
+<p>กำหนดด้วย “”, ‘’</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mystring = 'hello'
+print(mystring)
+mystring = "hello"
+print(mystring)
+</code></pre></div></div>
+<h4 id="operator-">operator +</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>one = 1
+two = 2
+three = one + two
+print(three)
+
+hello = "hello"
+world = "world"
+helloworld = hello + " " + world
+print(helloworld)
+</code></pre></div></div>
+
+<h4 id="assignment">assignment</h4>
+<p>การใช้การ assignment สามารถใช้งาน กำหนดได้มากกว่าครั้งละ 1 ตัวแปร และจะใช้ตำแหน่งในการกำหนดค่า</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a, b = 3, 4
+print(a,b)
+</code></pre></div></div>
+<h4 id="exercise">Exercise</h4>
+<p>ให้ลองตั้งค่าตัวแปรเพื่อให้โปรแกรมทำงานอย่างถูกต้อง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># change this code
+mystring = None
+myfloat = None
+myint = None
+
+# testing code
+if mystring == "hello":
+    print("String: %s" % mystring)
+if isinstance(myfloat, float) and myfloat == 10.0:
+    print("Float: %f" % myfloat)
+if isinstance(myint, int) and myint == 20:
+    print("Integer: %d" % myint)
+</code></pre></div></div>
+
+<h2 id="lists">Lists</h2>
+<p>Lists มีลักษณะคล้ายกับ array สามารถที่จะเก็บค่าตัวแปรชนิดใดก็ได้ และมีขนาดไม่จำกัด สามารถที่นำ Lists มาวนลูปดีงค่าได้</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mylist = []
+mylist.append(1)
+mylist.append(2)
+mylist.append(3)
+print(mylist[0]) # prints 1
+print(mylist[1]) # prints 2
+print(mylist[2]) # prints 3
+
+# prints out 1,2,3
+for x in mylist:
+    print(x)
+</code></pre></div></div>
+
+<p>แต่หากมีการอ้างอิงตำแหน่งที่เกินขอบเขตก็จะสร้าง exception</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mylist = [1,2,3]
+print(mylist[10])
+print(len(mylist))
+</code></pre></div></div>
+
+<h4 id="exercise-1">Exercise</h4>
+<p>เพิ่มตัวแปรใน lists ของตัวแปร numbers, strings  ด้วยคำสั่ง append</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numbers = []
+strings = []
+names = ["John", "Eric", "Jessica"]
+
+# add numbers, strings
+
+second_name = names[1]
+print(numbers)
+print(strings)
+print("The second name on the names list is %s" % second_name)
+
+</code></pre></div></div>
+
+<h4 id="ตัวดำเนินการทางคณิตศาตร์"> ตัวดำเนินการทางคณิตศาตร์</h4>
+<p>เหมือนกับภาษาคอมพิวเตอร์อื่นที่สามารถรองรับการคำนวนทางด้านคณิตศาสตร์ เช่น addition, substraction, multiplication, division</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number = 1 + 2 * 3 / 4.0
+print(number)
+
+remainder = 11 % 3
+print(remainder)
+
+squared = 7 ** 2
+cubed = 2 ** 3
+
+print(squared)
+print(cubed)
+</code></pre></div></div>
+
+<h2 id="string-1">String</h2>
+<h4 id="ตัวดำเนินการทาง-strings"> ตัวดำเนินการทาง strings</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helloworld = "hello" + " " + "world"
+print(helloworld)
+
+lotsofhellos = "hello" * 10
+print(lotsofhellos)
+</code></pre></div></div>
+
+<h4 id="ตัวดำเนินการทาง-lists"> ตัวดำเนินการทาง Lists</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>even_numbers = [2,4,6,8]
+odd_numbers = [1,3,5,7]
+all_numbers = odd_numbers + even_numbers
+print(all_numbers)
+
+print([1,2,3] * 3)
+</code></pre></div></div>
+
+<h4 id="exercise-2">Exercise</h4>
+<ul>
+  <li>สร้างตัวแปร x_list จาก object x จำนวน 10 ตัว</li>
+  <li>สร้างตัวแปร y_list จาก object y จำนวน 10 ตัว</li>
+  <li>นำผลลัพท์ที่ได้ของ x_list, y_list มารวมกันในตัวแปร big_list</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = object()
+y = object()
+
+x_list = [x]
+y_list = [y]
+big_list = []
+
+print("x_list contains %d objects" % len(x_list))
+print("y_list contains %d objects" % len(y_list))
+print("big_list contains %d objects" % len(big_list))
+
+# testing code
+if x_list.count(x) == 10 and y_list.count(y) == 10:
+    print("Almost there...")
+if big_list.count(x) == 10 and big_list.count(y) == 10:
+    print("Great!")
+</code></pre></div></div>
+
+<h4 id="strings-formatting">Strings Formatting</h4>
+<p>ภาษา python ใช้รูปแบบของ ภาษา C เพื่อสร้างรูปแบบของString โดยการใช้สัญลักษณ์  %s , %d</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># This prints out "Hello, John!"
+name = "John"
+print("Hello, %s!" % name)
+
+# This prints out "John is 23 years old."
+name = "John"
+age = 23
+print("%s is %d years old." % (name, age))
+</code></pre></div></div>
+<p>สำหรับตัวแปร List ใช้ %s เช่นกัน</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># This prints out: A list: [1, 2, 3]
+mylist = [1,2,3]
+print("A list: %s" % mylist)
+</code></pre></div></div>
+<p>รูปแบบกำหนดพื้นฐาน</p>
+<ul>
+  <li>%s - String (or any object with a string representation, like numbers)</li>
+  <li>%d - Integers</li>
+  <li>%f - Floating point numbers</li>
+  <li>%.<number of="" digits="">f - Floating point numbers with a fixed amount of digits to the right of the dot.</number></li>
+  <li>%x/%X - Integers in hex representation (lowercase/uppercase)</li>
+</ul>
+
+<p>format สามารถกำหนดไว้ในตัวแปร</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data = ("John", "Doe", 53.44)
+format_string = "Hello %s %s. Your current balance is $%s."
+
+print(format_string % data)
+</code></pre></div></div>
+<h4 id="advance-string-formatting">Advance String Formatting</h4>
+<p>ในpython สามารถกำหนด format อ้างอิงตาม PEP 3101
+(PEP - Python Enhancement Proposals)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Hello {0}, {1}".format("Guido van", "Rossum")
+
+"Hello {firstname}, {lastname}".format(firstname="Guido van", name="Rossum")
+</code></pre></div></div>
+
+<h4 id="basic-string-operations">Basic String Operations</h4>
+<p>การกำหนด string สามารถกำหนดภายใน “”, หรือ ‘’</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+astring2 = 'Hello world!'
+</code></pre></div></div>
+
+<p>ความยาวของ string</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print("single quotes are ' '")
+
+print(len(astring))
+</code></pre></div></div>
+
+<p>ค้นหาตำแหนงของตัวอักษร index  จะจับอักษรตัวแรกส่วน</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring.index("o"))
+</code></pre></div></div>
+<p>นับตัวอักษร</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring.count("l"))
+</code></pre></div></div>
+<p>print string  โดยการกำหนด จุดเริ่ม และ จุดจบ  โดยการกำหนด index
+โดยดึงค่าจากตำแหน่งเริ่ม และ จุดสุดท้าย-1 ในตัวอย่างกำหนด กำหนดไว้เป็น 7 ดังนั้นจะดึงข้อมูลมาจนถึงตำแหน่งที่ 6
+ตัวอย่าง</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>H   e   l   l   o       W   o   r   l   d
+0   1   2   3   4   5   6   7   8   9   10
+-11 -10 -9  -8  -7  -6  -5  -4  -3  -2  -1
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring[3:7])
+</code></pre></div></div>
+<p>อ้างอิงจากเส้นจำนวน
+<img src="../../assets/images/number.gif" alt="number" /></p>
+
+<p>กำหนด step [start:stop:step]</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring[3:7:2])
+
+number = [13, 14, 15, 16, 17, 18, 19]
+print(number[::2])
+</code></pre></div></div>
+<p>การอ้างอิง index
+<img src="../../assets/images/string-slicing.png" alt="slice" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name = "Monty Python"
+print(name[0:2])
+print(name[2:5])
+print(name[:4])
+print(name[4:])
+print(name[:])
+print(name[1:-1])
+</code></pre></div></div>
+
+<h4 id="สลับอักษรตัวเล็ก-ตัวใหญ่">สลับอักษรตัวเล็ก ตัวใหญ่</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring.upper())
+print(astring.lower())
+</code></pre></div></div>
+
+<h4 id="ตรวจสอบ-การเริ่มต้นของ-string-และ-คำลงท้าย">ตรวจสอบ การเริ่มต้นของ string และ คำลงท้าย</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+print(astring.startswith("Hello"))
+print(astring.endswith("asdfasdfasdf"))
+</code></pre></div></div>
+
+<h4 id="การแบ่งคำ">การแบ่งคำ</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>astring = "Hello world!"
+afewwords = astring.split(" ")
+</code></pre></div></div>
+
+<h2 id="condition">Condition</h2>
+<p>ภาษา python กำหนดให้ตัวแปร boolean เพื่อทดสอบเงื่อนไข</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 2
+print(x == 2)
+print(x == 3)
+print(x &lt; 3)
+</code></pre></div></div>
+
+<p>นอกจากนั้น python ยังสามารถใช้คำ and, or เป็น boolean operators เพื่อสร้างการทดสอบเงื่อนไข</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name = "John"
+age = 23
+if name == "John" and age == 23:
+    print("Your name is John, and you are also 23 years old.")
+
+if name == "John" or name == "Rick":
+    print("Your name is either John or Rick.")
+</code></pre></div></div>
+
+<p>นอกจากนั้นยังมี in operator เพื่อทดสอบการมีอยู่ของ object ที่อยู่ใน lists</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name = "John"
+if name in ["John", "Rick"]:
+    print("Your name is either John or Rick.")
+</code></pre></div></div>
+
+<h4 id="ifelse">if..else</h4>
+<p>ภาษา python มีการใช้ if..else แต่ต้องมีการกำหนด การย่อหน้า ที่มีระดับเดียวกัน ส่วนมากกำหนดให้เป็น 4 spaces</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 2
+if x == 2:
+    print("x equals two!")
+else:
+    print("x does not equal to two.")
+</code></pre></div></div>
+
+<h4 id="is-กับ-">is  กับ ==</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = [1,2,3]
+y = [1,2,3]
+print(x == y) # Prints out True
+print(x is y) # Prints out False
+
+a = 2
+b = 2
+print(a is b)
+</code></pre></div></div>
+
+<h4 id="not-ใช้สำหรับการ-invert-ค่าของ-boolean">not ใช้สำหรับการ invert ค่าของ boolean</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(not False)
+print((not False) == (False))
+</code></pre></div></div>
+
+<h2 id="loops">loops</h2>
+<p>สำหรับ python มี loop อยู่ด้วยกัน 2 แบบ คือ for, while</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>primes = [2, 3, 5, 7]
+for prime in primes:
+    print(prime)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Prints out the numbers 0,1,2,3,4
+for x in range(5):
+    print(x)
+
+# Prints out 3,4,5
+for x in range(3, 6):
+    print(x)
+
+# Prints out 3,5,7
+for x in range(3, 8, 2):
+    print(x)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>count = 0
+while count &lt; 5:
+    print(count)
+    count += 1  # This is the same as count = count + 1
+</code></pre></div></div>
+
+<h4 id="break-และ-continue">break และ continue</h4>
+<ul>
+  <li>break จะใช้สำหรับการออกจาก for loop และ while loop</li>
+  <li>continue ใช้สำหรับการ skip ออกจาก current block และกลับไปทำใน for, while ต่อไป</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Prints out 0,1,2,3,4
+
+count = 0
+while True:
+    print(count)
+    count += 1
+    if count &gt;= 5:
+        break
+
+# Prints out only odd numbers - 1,3,5,7,9
+for x in range(10):
+    # Check if x is even
+    if x % 2 == 0:
+        continue
+    print(x)
+</code></pre></div></div>
+
+<h4 id="การใช้งาน-else">การใช้งาน else</h4>
+<p>สามารถใช้งาน else ได้ทั้ง for และ while</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>count=0
+while(count&lt;5):
+    print(count)
+    count +=1
+else:
+    print("count value reached %d" %(count))
+
+# Prints out 1,2,3,4
+for i in range(1, 10):
+    if(i%5==0):
+        break
+    print(i)
+else:
+    print("this is not printed because for loop is terminated because of break but not due to fail in condition")
+</code></pre></div></div>
+
+<h2 id="functions">Functions</h2>
+<p>ฟังก์ชัน เป็นการนำเอาแต่ละคำสั่งมารวมกันภายใต้ block ทำให้อ่านง่าย นำกลับมาใช้ใหม่ได้</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def my_function():
+    print("Hello From My Function!")
+
+def my_function_with_args(username, greeting):
+    print("Hello, %s , From My Function!, I wish you %s"%(username, greeting))
+
+def sum_two_numbers(a, b):
+    return a + b
+
+my_function()
+my_function_with_args("John Doe", "a great year!")
+x = sum_two_numbers(1,2)
+</code></pre></div></div>
+
+<h2 id="classes-and-object">Classes and Object</h2>
+<p>objects คือการ รวบรวม (encapsulation) รวมทั้ง variables , functionsเข้ามาอยู่ใน object เดียวกัน</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyClass:
+    variable = "blah"
+
+    def function(self):
+        print("This is a message inside the class.")
+
+myobjectx = MyClass()
+myobjecty = MyClass()
+
+print(myobjectx.variable)
+print(myobjecty.variable)
+
+myobjectx.function()
+myobjecty.function()
+</code></pre></div></div>
+
+<h2 id="dictionaries">Dictionaries</h2>
+<p>Dictionaries เป็นชนิด data type ที่เป็นการกำหนดด้วย key,value โดย value  สามารถเป็น object ชนิดใดก็ได้</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phonebook = {}
+phonebook["John"] = 938477566
+phonebook["Jack"] = 938377264
+phonebook["Jill"] = 947662781
+print(phonebook)
+</code></pre></div></div>
+
+<p>หรือ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phonebook = {"John" : 938477566,"Jack" : 938377264,"Jill" : 947662781}
+for name, number in phonebook.items():
+    print("Phone number of %s is %d" % (name, number))
+
+del phonebook["John"]
+print(phonebook)
+
+phonebook = {
+   "John" : 938477566,
+   "Jack" : 938377264,
+   "Jill" : 947662781
+}
+phonebook.pop("John")
+print(phonebook)
+
+if "Jake" in phonebook:
+    print("Jake is listed in the phonebook.")
+if "Jill" not in phonebook:
+    print("Jill is not listed in the phonebook.")
+</code></pre></div></div>
+<h2 id="tuple">Tuple</h2>
+<p>เป็น  sequence ของ Immutable python object เป็นลำดับของ sequence เช่นกัน lists ความแตกต่างคือ tuples ไม่สามารถเปลี่ยนแปลงได้ การสร้าง tuple จะใช้ เครื่องหมายวงเล็บ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5 );
+tup3 = "a", "b", "c", "d";
+</code></pre></div></div>
+
+<p>หากต้องการสร้าง empty tuples</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup1 = ();
+</code></pre></div></div>
+
+<p>หากมีสามาชิกแค่ 1 ตัวก็จำเป็นต้องมี comma</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup1 = (50,);
+</code></pre></div></div>
+
+<p>ทดสอบ tuples</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5, 6, 7 );
+print "tup1[0]: ", tup1[0];
+print "tup2[1:5]: ", tup2[1:5];
+</code></pre></div></div>
+
+<p>update</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup1 = (12, 34.56);
+tup2 = ('abc', 'xyz');
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2;
+print tup3;
+</code></pre></div></div>
+
+<p>delete tuples</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tup = ('physics', 'chemistry', 1997, 2000);
+print tup;
+del tup;
+print("After deleting tup : ");
+print tup;
+</code></pre></div></div>
+<p>tuple Operations
+สามารถใช้ + *   เหมือนกับการใช้งานของ string
+<img src="../../assets/images/tuple.png" alt="slice" /></p>
+
+<p>Build in function ของ tuples
+<img src="../../assets/images/tuple2.png" alt="slice" /></p>
+
+<h2 id="modules-and-packages">Modules and Packages</h2>
+<p>โมดูล ใน ภาษาไพทอน คือ ไฟล์ ที่นามสกุล .py  ที่มีการ implement ฟังก์ชัน
+โมดูล สามารถ ที่จะถูก  import จาก โมดูลอื่น ด้วยคำสั่ง import</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib
+dir(urllib)
+help(urllib.urlopen)
+</code></pre></div></div>
+
+<h4 id="packages">Packages</h4>
+<p>packages ทำหน้าเป็น namespaces ของ โมดูลต่างๆ แต่ละ package ใน python คือ dicrectory ธรรมดาที่ภายใน มีfile ที่มีชื่อว่า <strong>init</strong>.py เป็น file ว่างๆ
+ตัวอย่าง
+<img src="../../assets/images/PackageModuleStructure.jpg" alt="number" /></p>
+
+<h4 id="pass-by-reference-vs-value">pass by reference vs value</h4>
+<p>ทุก parameters หรือ arguments ใน python จะส่งค่าผ่านแบบ reference ดังนั้นการเปลี่ยนแปลงค่า ภายใน functions</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist.append([1,2,3,4]);
+   print "Values inside the function: ", mylist
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+changeme( mylist );
+print "Values outside the function: ", mylist
+</code></pre></div></div>
+
+<p>แต่หาก เป็นการกำหนด เป็น local ในฟังก์ชัน การเปลี่ยนแปลงจะไม่มีผลกระทบกับ ค่าใด</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def changeme( mylist ):
+   "This changes a passed list into this function"
+   mylist = [1,2,3,4]; # This would assig new reference in mylist
+   print "Values inside the function: ", mylist
+   return
+
+# Now you can call changeme function
+mylist = [10,20,30];
+changeme( mylist );
+print "Values outside the function: ", mylist
+</code></pre></div></div>
+
+<p>เมื่อมีการประกาศตัวแปรแบบรับค่า จะต้องส่งค่าไป ถ้าไม่ส่งไปจะเป็น error</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def printme( str ):
+   "This prints a passed string into this function"
+   print(str)
+   return;
+
+# Now you can call printme function
+printme()
+
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: printme() missing 1 required positional argument: 'str'
+</code></pre></div></div>
+
+<h4 id="ลำดับของ-arguments">ลำดับของ arguments</h4>
+<p>การส่งค่าให้ตัวแปร python จะอิงตามตำแหน่ง แต่หาเราใช้กำหนดตัวแปรตอนส่งค่าไป ก็ไม่จำเป็นต้องขั้นกับตำแหน่ง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def printinfo( name, age ):
+   "This prints a passed info into this function"
+   print("Name: ", name)
+   print("Age ", age)
+   return
+
+printinfo("miki",50)
+printinfo( age=50, name="miki" )
+printinfo(50,"Abc")
+</code></pre></div></div>
+
+<h4 id="การส่งค่า-ให้แก่ฟังชั่น-มากกว่าค่าประกาศไว้">การส่งค่า ให้แก่ฟังชั่น มากกว่าค่าประกาศไว้</h4>
+<ul>
+  <li>python สามารถใช้งาน * ไว้หน้าตัวแปร</li>
+  <li>โดยตัวแปรดังกล่าวจะทำหน้าที่เก็บค่าทั้งหมด ที่ส่งเข้ามาแบบ non keyword argument  ไปเก็บไว้เป็นตัวแปรชนิด tuple</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def printinfo( arg1, *vartuple ):
+   "This prints a variable passed arguments"
+   print("Output is: ")
+   print(arg1)
+   for var in vartuple:
+      print(var)
+   return;
+
+# Now you can call printinfo function
+printinfo( 10 )
+printinfo( 70, 60, 50 )
+</code></pre></div></div>
+<ul>
+  <li>นอกจากนั้นการมีการใช้งาน ** ไว้หน้าตัวแปร ตัวแปรดังกล่าจะหน้าที่รับค่า ที่ส่งเข้ามาที่เป็น keyword arguments ไปเก็บไว้ในตัวแปรชนิด Dictionaries</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def printinfo( arg1, **vardic ):
+   "This prints a variable passed arguments"
+   print("Output is: ")
+   print(arg1)
+   for key,var in vardic.items():
+      print("key {} , var {}".format(key,var))
+   return;
+
+# Now you can call printinfo function
+printinfo( 10 )
+printinfo( 70, x=60, y=50 )
+</code></pre></div></div>
+
+<h4 id="การใช้-args-รวมกับ-kwargs">การใช้ *args รวมกับ **kwargs</h4>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def example(arg1,arg2, *args, **kwargs):
+    print(arg1)
+    print(arg2)
+    print(args)
+    for key,var in kwargs.items():
+       print("key {} , var {}".format(key,var))
+    return;
+
+example(1,2,3,4,x=1,y=2)
+</code></pre></div></div>
+
+</div>
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+    // Toggle sidebar  
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+    <!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>
