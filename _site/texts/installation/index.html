@@ -73,6 +73,8 @@
     
     <a class="sidebar-nav-item sidebar-nav-item-toc" href="#for-windows">for windows</a>
     
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#for-mac-os">for mac os</a>
+    
 
   </nav>
 
@@ -107,8 +109,25 @@
 
 <h2 id="for-windows">for windows</h2>
 <ul>
-  <li>ให้เปิด browser ไปยัง <a href="https://www.python.org/">www.python.org</a></li>
+  <li>ให้เปิด browser ไปยัง <a href="https://www.python.org/">www.python.org</a> ไปยังเมนู Download
+เพื่อ ทำการ download python 3.6.4
+<img src="../../assets/images/pythonpage.png" alt="python page" /></li>
+  <li>ให้ทำการติดตั้ง ตัว installer ที่ทำการ download มา</li>
+  <li>เลือกการติดตั้งสำหรับ “Install for all users” แล้วกด next</li>
+  <li>เลือก Default PATH
+    <h2 id="for-mac-os">for mac os</h2>
+    <p>สามารถติดตั้งผ่าน brew โดยให้เปิด terminal แล้วสั่งคำสั่ง</p>
+  </li>
 </ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre></div></div>
+<p>จากนั้นให้เพิ่ม ค่าตั้งแปร PATH ใน file ~./profile</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+</code></pre></div></div>
+<p>เมื่อเสร็จเรียบร้อยให้ทำการติดตั้ง python3 ด้วยคำสั่ง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install python3
+</code></pre></div></div>
 
 </div>
       </div>

@@ -18,7 +18,7 @@ index.addDoc({
   title: "Python installation",
   author: "sawangpong",
   layout: "narrative",
-  content: "การติดตั้ง\nภาษาpython สามารถติดตั้งการใช้งานได้ทุก platform แล้วแต่ความถนัดของนักพัฒนา ผู้เรียนจะต้องทำการติดตั้ง python ให้เหมาะสมกับการใช้งานดังนี้\n\nfor windows\n\n  ให้เปิด browser ไปยัง www.python.org\n\n",
+  content: "การติดตั้ง\nภาษาpython สามารถติดตั้งการใช้งานได้ทุก platform แล้วแต่ความถนัดของนักพัฒนา ผู้เรียนจะต้องทำการติดตั้ง python ให้เหมาะสมกับการใช้งานดังนี้\n\nfor windows\n\n  ให้เปิด browser ไปยัง www.python.org ไปยังเมนู Download\nเพื่อ ทำการ download python 3.6.4\n\n  ให้ทำการติดตั้ง ตัว installer ที่ทำการ download มา\n  เลือกการติดตั้งสำหรับ “Install for all users” แล้วกด next\n  เลือก Default PATH\n    for mac os\n    สามารถติดตั้งผ่าน brew โดยให้เปิด terminal แล้วสั่งคำสั่ง\n  \n\n\nruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"\n\nจากนั้นให้เพิ่ม ค่าตั้งแปร PATH ใน file ~./profile\nexport PATH=/usr/local/bin:/usr/local/sbin:$PATH\n\nเมื่อเสร็จเรียบร้อยให้ทำการติดตั้ง python3 ด้วยคำสั่ง\nbrew install python3\n\n",
   id: 0
 });
 console.log( jQuery.type(index) );
