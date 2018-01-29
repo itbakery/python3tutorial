@@ -123,7 +123,12 @@ pre code {
 .highlight {
   margin-bottom: 1rem;
   border-radius: 4px;
+  background-color: black !important;
 }
 .highlight pre {
   margin-bottom: 0;
+}
+
+.highlight code {
+  color: white;
 }
