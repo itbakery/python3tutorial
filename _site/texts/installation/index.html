@@ -75,6 +75,8 @@
     
     <a class="sidebar-nav-item sidebar-nav-item-toc" href="#for-mac-os">for mac os</a>
     
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#for-linux">for linux</a>
+    
 
   </nav>
 
@@ -112,21 +114,44 @@
   <li>ให้เปิด browser ไปยัง <a href="https://www.python.org/">www.python.org</a> ไปยังเมนู Download
 เพื่อ ทำการ download python 3.6.4
 <img src="../../assets/images/pythonpage.png" alt="python page" /></li>
-  <li>ให้ทำการติดตั้ง ตัว installer ที่ทำการ download มา</li>
+  <li>ให้ทำการติดตั้ง ตัว installer 64bit ที่ทำการ download มา
+<img src="../../assets/images/python_installer.png" alt="python page" /></li>
   <li>เลือกการติดตั้งสำหรับ “Install for all users” แล้วกด next</li>
   <li>เลือก Default PATH
-    <h2 id="for-mac-os">for mac os</h2>
-    <p>สามารถติดตั้งผ่าน brew โดยให้เปิด terminal แล้วสั่งคำสั่ง</p>
-  </li>
+<img src="../../assets/images/python_installer_run.png" alt="python page" /></li>
+  <li>เปิด windows terminal และทำการ ทดสอบ import os, sys ดังรูป
+<img src="../../assets/images/window_terminal.png" alt="python page" /></li>
+</ul>
+<hr />
+
+<h2 id="for-mac-os">for mac os</h2>
+<ul>
+  <li>สามารถติดตั้งผ่าน brew โดยให้เปิด terminal แล้วสั่งคำสั่ง</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 </code></pre></div></div>
-<p>จากนั้นให้เพิ่ม ค่าตั้งแปร PATH ใน file ~./profile</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-</code></pre></div></div>
-<p>เมื่อเสร็จเรียบร้อยให้ทำการติดตั้ง python3 ด้วยคำสั่ง</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install python3
+<ul>
+  <li>จากนั้นให้เพิ่ม ค่าตั้งแปร PATH ใน file ~./profile
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+</code></pre></div>    </div>
+  </li>
+  <li>เมื่อเสร็จเรียบร้อยให้ทำการติดตั้ง python3 ด้วยคำสั่ง
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install python3
+</code></pre></div>    </div>
+  </li>
+  <li>เปิด mac terminal
+<img src="../../assets/images/mac_terminal.png" alt="python page" /></li>
+</ul>
+
+<hr />
+
+<h2 id="for-linux">for linux</h2>
+<p>ubuntu</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># apt update &amp;&amp; apt upgrade
+# add-apt-repository ppa:jonathonf/python-3.6
+# apt install python3.6
+# python3 -v
 </code></pre></div></div>
 
 </div>
