@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="/python3tutorial/texts/oop/"/>
+
+  <!-- Basic meta elements -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
+
+  <!--   Dublin Core metadata for Zotero -->  
+  <meta name="DC.title" content="Object Oriented " />
+  <meta name="DC.creator" content="sawangpong" />
+  <meta name="DC.contributor" content="Sawangpong muadphet" />
+  <meta name="DC.date" content="2018" />
+  <meta name="DC.rights" content="" />
+  <meta name="DC.source" content="หลักสูตร Python 3" />
+  
+    <!-- Open Graph metadata -->
+
+    
+    <meta property="og:title" content="Object Oriented "/>
+    <meta property="og:description" content="An Ed edition">
+    <meta property="fb:admins" content="elotroalex"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:4000/python3tutorial/texts/oop/"/>
+    <meta property="fb:app_id" content="589495744558280"/>
+    <meta property="og:image" content="http://localhost:4000/python3tutorial/assets/open-graph-logo.png"/>
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    
+   
+  <title>
+    
+      Object Oriented 
+    
+  </title>
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/python3tutorial/assets/css/style.css"/>
+ 
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/python3tutorial/assets/apple-touch-icon-precomposed.png"/>
+  <link rel="shortcut icon" href="/python3tutorial/assets/favicon.ico"/>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/python3tutorial/atom.xml"/>
+</head>
+
+
+  <body class="theme-base-">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Object Oriented </p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/python3tutorial/">Home</a>
+    <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>    
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#object-oriented-programming">Object Oriented programming</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#inheritance">Inheritance</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#instance-class-static-methods">Instance, class, Static Methods</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#multiple-inheritance">multiple Inheritance</a>
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#decorator">decorator</a>
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+     Edited by Sawangpong muadphet, 2018.
+    </p>
+  </div>
+</div>
+
+    
+
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/python3tutorial/" title="Home">หลักสูตร Python 3</a>
+            <br><small>software development python 3</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content" id="main">
+        <div class="narrative">
+  <h1 class="text-title">Object Oriented </h1>
+  <p class="citation"> by sawangpong</p>
+  <h2 id="object-oriented-programming">Object Oriented programming</h2>
+<p>ใน ภาษา python ทุกอย่างเป็น object โดย ในภาษา python จะนำเอา code ไปเขียนไว้ในรูปแบบของ class แนวคิดของ OOP ประกอบด้วย</p>
+
+<ul>
+  <li>Abstraction</li>
+  <li>Polymorphism</li>
+  <li>encapsulation</li>
+  <li>Inheritance</li>
+</ul>
+
+<h4 id="python-object">python object</h4>
+<p>ทดสอบ ชนิดของ object ด้วยคำสั่ง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sys
+
+def function():
+    pass
+
+print(type(1))
+print(type(""))
+print(type([]))
+print(type({}))
+print(type(()))
+print(type(object))
+print(type(function))
+print(type(sys))
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class First():
+    def demo_method():
+       print("Demo")
+
+fr = First()
+
+print(type(fr))
+print(type(First))
+</code></pre></div></div>
+<p>ตรวจสอบ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print(dir(First))
+
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '_
+_init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__
+', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'demo_method']
+
+print(dir(fr))
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '_
+_init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__
+', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'demo_method']
+</code></pre></div></div>
+
+<p>เรียกฟังก์ชั่น</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fr.demo_method()
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: demo_method() takes 0 positional arguments but 1 was given
+</code></pre></div></div>
+
+<p>พิจารณา error ว่า มีสามารถรับค่าค่า แต่ว่ามีการส่ง ตัวแปรมาให้ 1 ตัว ดังนั้นต้องมีการกำหนดค่า ใหม่ให้แก่ ฟังก์ชั่น</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class First():
+    def demo_method(self):
+       print("Demo")
+       print(id(self))
+
+my_object = First()
+print(id(my_object))
+my_object.demo_method()
+</code></pre></div></div>
+
+<h4 id="attributes">attributes</h4>
+<p>attribute เป็นคุณสมบติ ของ object จะถูก set ค่าใน <code class="highlighter-rouge">___init__()</code> ถูกเรียกอัตโนมัติ เมื่อมีการสร้าง object</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Cat():
+
+    def __init__(self, name):
+
+        self.name = name
+
+missy = Cat('Missy')
+lucky = Cat('Lucky')
+
+print(missy.name)
+print(lucky.name)
+</code></pre></div></div>
+
+<h4 id="init-และ-new"><strong>init</strong> และ <strong>new</strong></h4>
+<p>ในกระบวนการสร้าง object จะมีการเรียกใช้งานทั้งสอง ฟังก์ชั้น ลองทดสอบ code ดังต่อไปนี้</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Sample(object):
+    def __new__(cls, *args, **kargs):
+        print("Creating instance of Sample")
+        instance = super(Sample, cls).__new__(cls)
+        print('Instance returned by __new__ - {}'.format(instance))
+        return instance
+    def __init__(self):
+        print("Initiating instance of Sample")
+
+s = Sample()
+Creating instance of Sample
+Instance returned by __new__ - &lt;__main__.Sample object at 0x7efe87906a20&gt;
+Initiating instance of Sample
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Student:
+    def __init__(self, name, student_number):
+        self.name = name
+        self.student_number = student_number
+        self.classes = []
+
+    def enrol(self, course_running):
+        self.classes.append(course_running)
+        course_running.add_student(self)
+
+
+class Department:
+    def __init__(self, name, department_code):
+        self.name = name
+        self.department_code = department_code
+        self.courses = {}
+
+    def add_course(self, description, course_code, credits):
+        self.courses[course_code] = Course(description, course_code, credits, self)
+        return self.courses[course_code]
+
+
+class Course:
+    def __init__(self, description, course_code, credits, department):
+        self.description = description
+        self.course_code = course_code
+        self.credits = credits
+        self.department = department
+        self.department.add_course(self)
+
+        self.runnings = []
+
+    def add_running(self, year):
+        self.runnings.append(CourseRunning(self, year))
+        return self.runnings[-1]
+
+
+class CourseRunning:
+    def __init__(self, course, year):
+        self.course = course
+        self.year = year
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+
+maths_dept = Department("Mathematics and Applied Mathematics", "MAM")
+mam1000w = maths_dept.add_course("Mathematics 1000", "MAM1000W", 1)
+mam1000w_2013 = mam1000w.add_running(2013)
+
+bob = Student("Bob", "Smith")
+bob.enrol(mam1000w_2013)
+
+</code></pre></div></div>
+<ul>
+  <li>class จะทำหน้าที่ encapsulate properties</li>
+  <li>def <strong>init</strong> ทำหน้าที่เป็น constructor</li>
+  <li>self จะทำหน้าที่เป็น reference ไปยัง instance ทำให้ทราบว่า function ที่ดำเนินการอยู่นั้นอยู่ใน instance ใด</li>
+</ul>
+
+<h2 id="inheritance">Inheritance</h2>
+<p>เป็น วิธีการจัดการ objects ในรูปแบบของลำดับชั้น โดย object จะ มีการถ่ายทอดคุณสมบัติ จาก object อื่นได้</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Person:
+    def __init__(self, name, surname, number):
+        self.name = name
+        self.surname = surname
+        self.number = number
+
+
+class Student(Person):
+    UNDERGRADUATE, POSTGRADUATE = range(2)
+
+    def __init__(self, student_type, *args, **kwargs):
+        self.student_type = student_type
+        self.classes = []
+        super(Student, self).__init__(*args, **kwargs)
+
+    def enrol(self, course):
+        self.classes.append(course)
+
+
+class StaffMember(Person):
+    PERMANENT, TEMPORARY = range(2)
+
+    def __init__(self, employment_type, *args, **kwargs):
+        self.employment_type = employment_type
+        super(StaffMember, self).__init__(*args, **kwargs)
+
+
+class Lecturer(StaffMember):
+    def __init__(self, *args, **kwargs):
+        self.courses_taught = []
+        super(Lecturer, self).__init__(*args, **kwargs)
+
+    def assign_teaching(self, course):
+        self.courses_taught.append(course)
+
+
+jane = Student(Student.POSTGRADUATE, "Jane", "Smith", "SMTJNX045")
+jane.enrol(a_postgrad_course)
+
+bob = Lecturer(StaffMember.PERMANENT, "Bob", "Jones", "123456789")
+bob.assign_teaching(an_undergrad_course)
+</code></pre></div></div>
+
+<p>จากตัวอย่าง base class คือ Person ที่มีข้อมูลของบุคคล ของ Staff และ Lectuere</p>
+<ul>
+  <li>เราใช้ <strong>init</strong> ของ base class จะทำหน้าที่ initial ค่าของ instance variable ด้วยการเรียก <code class="highlighter-rouge">super(Student, self).__init__(*args, **kwargs)</code></li>
+  <li>ส่วน class ลูกแต่ละ class ก็จำทำการกำหนด attribute type เพื่อแยกประเภท</li>
+</ul>
+
+<h2 id="instance-class-static-methods">Instance, class, Static Methods</h2>
+<ul>
+  <li>instance method  เป็นการประกาศ method ของ class ปรกติ เป็นพื้นฐานของ การสร้าง class โดยจะประกาศด้วย <code class="highlighter-rouge">def functionname(self):</code>
+และมี argument ชื่อว่า <code class="highlighter-rouge">self</code> เพื่ออ้างอิงกับ instance ใช้สำหรับการกำหนด attribute (object’s state) และสามารถที่จะเข้าถึง class’s state ได้ด้วยโดยผ่าน <code class="highlighter-rouge">self.__class__</code></li>
+  <li>class method โดยต้องใช้ decorator ชื่อ @classmethod และแทนที่จะรับตัวแปรชื่อ self ก็จะเปลี่ยนเป็น  cls เพื่อชี้ไปยัง class แทนที่จะชื่้ไปยัง  object</li>
+  <li>static method โดยต้องใช้ decorator ชื่อ @staticmethod เป็นฟังก์ชั่นที่ไม่ต้อง self, cls</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyClass:
+    def method(self):
+        return 'instance method called', self
+
+    @classmethod
+    def classmethod(cls):
+        return 'class method called', cls
+
+    @staticmethod
+    def staticmethod():
+        return 'static method called'
+</code></pre></div></div>
+
+<p>่ทดสอบ code ดังนี้</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>obj = MyClass()
+obj.method()
+('instance method called', &lt;__main__.MyClass object at 0x7efe8aaf67f0&gt;)
+
+MyClass.method(obj)
+('instance method called', &lt;__main__.MyClass object at 0x7efe8aaf67f0&gt;)
+
+MyClass.method()
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: method() missing 1 required positional argument: 'self'
+</code></pre></div></div>
+
+<p>เมื่อมีการเรียก function method ขึ้นมา  python จะแทนค่าของ self ด้วย instance ของ object เราสามารถส่งค่า object ไปยัง function โดยตรงเช่นเดียวกัน โดยไม่ต้องใช้ format  <code class="highlighter-rouge">obj.method()</code></p>
+<ul>
+  <li>Instance method สามารถเข้าถึง instance state</li>
+  <li>Instance method สามารถเข้าถึง class state</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>obj.classmethod()
+('class method called', &lt;class '__main__.MyClass'&gt;)
+</code></pre></div></div>
+<ul>
+  <li>class method ไม่สามารถเปลี่ยนแปลงสถานะของ instance state</li>
+  <li>classmethod() จะเข้าถึงได้เพียง class method เท่านั้น python ส่ง class ไปยัง first argument ไปยัง fuction</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>obj.staticmethod()
+'static method called'
+</code></pre></div></div>
+<ul>
+  <li>static method ไม่สามารถเปลี่ยนแปลงสถานะของ instance state</li>
+  <li>static method ไม่สามารถเปลี่ยนแปลงสถานะของ class state</li>
+</ul>
+
+<p>ตัวอย่าง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Pizza:
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
+    def __repr__(self):
+        return f'Pizza({self.ingredients!r})'
+
+Pizza(['cheese', 'tomatoes'])
+Pizza(['cheese', 'tomatoes'])
+
+</code></pre></div></div>
+
+<p>จากตัวอย่างด้านบน เราสามารถใช้งาน classmethod</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Pizza:
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
+
+    def __repr__(self):
+        return f'Pizza({self.ingredients!r})'
+
+    @classmethod
+    def margherita(cls):
+        return cls(['mozzarella', 'tomatoes'])
+
+    @classmethod
+    def prosciutto(cls):
+    return cls(['mozzarella', 'tomatoes', 'ham'])
+</code></pre></div></div>
+
+<p>เมื่อมีการเรียกใช้ class method จะ objects และมีการเรียกใช้ <strong>init</strong> แบบinternal</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pizza.margherita()
+Pizza(['mozzarella', 'tomatoes'])
+
+Pizza.prosciutto()
+Pizza(['mozzarella', 'tomatoes', 'ham'])
+</code></pre></div></div>
+
+<h4 id="การเรียกใช้-static">การเรียกใช้ static</h4>
+<p>ต้องการที่ให้มีการคำนวนค่าต่างๆ ที่ตอ้งการ แต่จะไม่มีการกระทบกับ instance และ class ส่วนมากนำมาสร้างเป็น utility function มากกว่า</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import math
+
+class Pizza:
+    def __init__(self, radius, ingredients):
+        self.radius = radius
+        self.ingredients = ingredients
+    def __repr__(self):
+        return (f'Pizza({self.radius!r}, 'f'{self.ingredients!r})')
+    def area(self):
+        return self.circle_area(self.radius)
+    @staticmethod
+    def circle_area(r):
+        return r ** 2 * math.pi
+</code></pre></div></div>
+
+<p>่่ทดสอบ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>p = Pizza(4, ['mozzarella', 'tomatoes'])
+p
+Pizza(4, ['mozzarella', 'tomatoes'])
+p.area()
+50.26548245743669
+Pizza.circle_area(4)
+50.26548245743669
+</code></pre></div></div>
+
+<h2 id="multiple-inheritance">multiple Inheritance</h2>
+<p>ใน python สามารถนิยาม class โดยที่เป็น subclass ได้มากกว่า 1 class เช่น</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class SubclassName(BaseClass1, BaseClass2, BaseClass3, ...):
+    pass
+</code></pre></div></div>
+
+<p><img src="../../assets/images/multiple_inheritance.png" alt="multiple_inheritance.png" /></p>
+
+<h2 id="decorator">decorator</h2>
+<p>ที่ผ่านมาเราได้เป็น decorator สองตัว คือ @classmethod, @staticmethod code ตัวอย่างด้านล่างจะมี ความหมายเหมือนกัน จะเห็นว่าสามารถที่จะอ่านและทำความเข้าใจได้ง่ายกว่า</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def foo(self):
+    perform method operation
+foo = classmethod(foo)
+
+
+@classmethod
+def foo(self):
+    perform method operation
+</code></pre></div></div>
+
+<p>เพื่อที่จะทำให้เราเข้าใจ decorator ได้อย่างชัดเจน ของให้เราทำความเข้าใจ fuctions ในภาษา python ให้มีชัดเจน เพิ่มเติม ดังนี้</p>
+<ul>
+  <li>1 ฟังก์ชันสามารถ assign ให้กับ variable ได้</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def greet(name):
+    return "hello "+name
+
+greet_someone = greet
+print(greet_someone("John"))
+</code></pre></div></div>
+
+<ul>
+  <li>2 สามารถ สร้าง function ซ้อนเข้าไปใน function ได้</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def greet(name):
+    def get_message():
+        return "Hello "
+    result = get_message()+name
+    return result
+
+print(greet("John"))
+</code></pre></div></div>
+
+<ul>
+  <li>3 สามารถ ส่ง function ไปยัง function ในฐานะของการเป็น  parameter</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def greet(name):
+   return "Hello " + name
+
+def call_func(func):
+   other_name = "John"
+   return func(other_name)
+
+print(call_func(greet))
+</code></pre></div></div>
+
+<p>ส่ง function ไปยัง call_func(greet)  ในรูปแบบที่เป็น object ไม่มี เครื่องหมาย <code class="highlighter-rouge">()</code> แสดงว่ายังไม่การ execute ส่วนการ execte จะเกิดที่
+<code class="highlighter-rouge">return func(other_name)</code></p>
+
+<ul>
+  <li>4 function สามารถที่ คืนค่ากลับมาเป็น ฟังก์ชั่นได้</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def compose_greet_func():
+    def get_message():
+        return "Hello there!"
+    return get_message
+
+greet = compose_greet_func()
+print(greet())
+
+</code></pre></div></div>
+
+<p>ฟังก์ที่มีการ return ออกมา ยังคงสามารถที่จะเข้าถึงตัวแปร ที่ส่งเข้าไปได้ เนื่องจากใน python มีความสามารถที่เรียกว่า closures (PEP 227)
+จากหลักการที่ว่า nested function คือฟังก์ชั่น ที่กำหนดใน function อื่น ยังคงมีความสามารถในการเข้าถึง ค่าของ ตัวแปรที่อยู่ใน enclosing scope
+ตัวอย่าง code ของ clourse</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def transmit_to_space(message):
+    "This is the enclosing function"
+    def data_transmitter():
+        "The nested function"
+        print(message)
+    data_transmitter()
+
+print(transmit_to_space("Test message"))
+</code></pre></div></div>
+<p>หรือสามารถเขียนได้อีกแบบดังนี้</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def transmit_to_space(message):
+    "This is the enclosing function"
+    def data_transmitter():
+        "The nested function"
+        print(message)
+    return data_transmitter
+
+data = transmit_to_space("Test message")
+data()
+</code></pre></div></div>
+
+<p>ดังนั้น เราสามารถนิยาม Decorator ได้ว่า
+function decorator คือ ฟังก์ชั่นที่ นำไปห่อหุ่ม function ที่มีอยู่แล้ว เพื่อทำหน้าที่เพิ่มความสามารถ ตามที่ต้องการไป จากตัวอย่างด้านล่างนี้ เราใช้ decorator เพิ่ม p tag ให้แก่ function</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def get_text(name):
+   return "lorem ipsum, {0} dolor sit amet".format(name)
+
+def p_decorate(func):
+   def func_wrapper(name):
+       return "&lt;p&gt;{0}&lt;/p&gt;".format(func(name))
+   return func_wrapper
+
+my_get_text = p_decorate(get_text)
+
+print(my_get_text("John"))
+</code></pre></div></div>
+
+<p>เพื่อให้สามารถที่จะอ่านได้ง่าย จึงมีการให้มีความกระทัดรัดดังนี้</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def p_decorate(func):
+   def func_wrapper(name):
+       return "&lt;p&gt;{0}&lt;/p&gt;".format(func(name))
+   return func_wrapper
+
+@p_decorate
+def get_text(name):
+   return "lorem ipsum, {0} dolor sit amet".format(name)
+
+print(get_text("John"))
+</code></pre></div></div>
+
+<p>และการใช้งาน decorator สามารถ ใช้งานได้ ซ้อนๆ กัน</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def p_decorate(func):
+   def func_wrapper(name):
+       return "&lt;p&gt;{0}&lt;/p&gt;".format(func(name))
+   return func_wrapper
+
+def strong_decorate(func):
+    def func_wrapper(name):
+        return "&lt;strong&gt;{0}&lt;/strong&gt;".format(func(name))
+    return func_wrapper
+
+def div_decorate(func):
+    def func_wrapper(name):
+        return "&lt;div&gt;{0}&lt;/div&gt;".format(func(name))
+    return func_wrapper
+</code></pre></div></div>
+
+<p>ลองทดสอบ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>get_text = div_decorate(p_decorate(strong_decorate(get_text)))
+get_text("Demo")
+</code></pre></div></div>
+
+<p>หากต้องการเขียนในรูปแบบของ python ก็สามารถเขียนได้เป็น</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@div_decorate
+@p_decorate
+@strong_decorate
+def get_text(name):
+   return "lorem ipsum, {0} dolor sit amet".format(name)
+
+print(get_text("John"))
+</code></pre></div></div>
+
+<h4 id="การใช้งาน-decorator-ร่วมกับ-python-classes">การใช้งาน decorator ร่วมกับ python classes</h4>
+<p>เนื่องจาก ในภาษา python อย่างที่ทราบ มาแล้วว่า class method จะต้องมีการประกาศรับค่า self เสมอ ดังนั้นใน func_wrapper ก็จำเป็นต้องประกาศรับค่า self เช่นกัน  (เข้าถึงตัวแปรผ่าน self)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def p_decorate(func):
+   def func_wrapper(self):
+       return "&lt;p&gt;{0}&lt;/p&gt;".format(func(self))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = "John"
+        self.family = "Doe"
+
+    @p_decorate
+    def get_fullname(self):
+        return self.name+" "+self.family
+
+my_person = Person()
+print(my_person.get_fullname())
+</code></pre></div></div>
+
+<p>หากต้องการให้ func_wrapper สามารถค่าจาก class ได้ด้วยก็ให้ใช้งานร่วมกับ <code class="highlighter-rouge">*args, **kwargs</code>
+ทำให้ func_wrapper รับค่า ที่เป็น argument และ keyword argument</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def p_decorate(func):
+   def func_wrapper(*args, **kwargs):
+       return "&lt;p&gt;{0}&lt;/p&gt;".format(func(*args, **kwargs))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = "John"
+        self.family = "Doe"
+    @p_decorate
+    def get_fullname(self):
+        return self.name+" "+self.family
+
+my_person = Person()
+print(my_person.get_fullname())
+</code></pre></div></div>
+
+</div>
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+    // Toggle sidebar  
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+    <!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>

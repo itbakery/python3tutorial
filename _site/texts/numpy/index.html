@@ -3,7 +3,7 @@
 
   <head>
   <!-- Canonical link to help search engines -->
-  <link rel="canonical" href="/python3tutorial/search/"/>
+  <link rel="canonical" href="/python3tutorial/texts/numpy/"/>
 
   <!-- Basic meta elements -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -13,21 +13,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"/>
 
   <!--   Dublin Core metadata for Zotero -->  
-  <meta name="DC.title" content="Search" />
-  <meta name="DC.creator" content="" />
-  <meta name="DC.contributor" content="" />
-  <meta name="DC.date" content="" />
+  <meta name="DC.title" content="numpy " />
+  <meta name="DC.creator" content="sawangpong" />
+  <meta name="DC.contributor" content="Sawangpong muadphet" />
+  <meta name="DC.date" content="2018" />
   <meta name="DC.rights" content="" />
   <meta name="DC.source" content="หลักสูตร Python 3" />
   
     <!-- Open Graph metadata -->
 
     
-    <meta property="og:title" content="Search"/>
+    <meta property="og:title" content="numpy "/>
     <meta property="og:description" content="An Ed edition">
     <meta property="fb:admins" content="elotroalex"/>
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://localhost:4000/python3tutorial/search/"/>
+    <meta property="og:url" content="http://localhost:4000/python3tutorial/texts/numpy/"/>
     <meta property="fb:app_id" content="589495744558280"/>
     <meta property="og:image" content="http://localhost:4000/python3tutorial/assets/open-graph-logo.png"/>
     <meta property="og:image:width" content="200" />
@@ -36,7 +36,7 @@
    
   <title>
     
-      Search
+      numpy 
     
   </title>
 
@@ -64,43 +64,22 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>เริ่มต้นเรียนรู้ การเขียนโปรแกรมด้วยภาษา python</p>
+    <p>numpy </p>
   </div>
 
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item" href="/python3tutorial/">Home</a>
-
+    <a class="sidebar-nav-item" href="#" data-proofer-ignore>Return to Top</a>    
+    
+    <a class="sidebar-nav-item sidebar-nav-item-toc" href="#numpy">Numpy</a>
     
 
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a class="sidebar-nav-item active" href="/python3tutorial/search/">Search</a>
-        
-      
-    
-
-
-    <a class="sidebar-nav-item" href="https://github.com/itbakery/python3tutorial" target="_blank">GitHub project</a>
   </nav>
 
   <div class="sidebar-item">
-    <p>Currently v0.1.1. Distributed with an MIT license.</p>
+    <p>
+     Edited by Sawangpong muadphet, 2018.
+    </p>
   </div>
 </div>
 
@@ -120,21 +99,78 @@
       </div>
 
       <div class="container content" id="main">
-        <div class="page">
-  <h1 class="page-title">Search</h1>
-  <form id="site_search">
-<div>In case you don't want to use the search box provided by your browser:</div>
-<br>
-<input id="search" type="text"/></form>
+        <div class="narrative">
+  <h1 class="text-title">numpy </h1>
+  <p class="citation"> by sawangpong</p>
+  <h2 id="numpy">Numpy</h2>
+<p>Numpy เป็น package พื้นฐานที่เตรียมไว้ให้สำหรับรองรับการคำนวนทาง วิทยาศาสตร์ มีคุณสมบัติดังนี้</p>
+<ul>
+  <li>เป็น Array object  มีขนาด N-dimension array เรียกว่า ndarray และแต่ละ block จะเป็นที่เก็บของ object เป็นชนิด dtype</li>
+  <li>มี function ทางวิทยาศสตร์ เตรียมให้ เพื่อให้สามารถคำนวนสมการต่างๆ ได้ทันที เช่น Fourier transforms, linear algebra</li>
+</ul>
 
-<div id="results"></div>
-<ul id="search_results"></ul>
-<script src="/python3tutorial/assets/js/elasticlunr.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="/python3tutorial/assets/js/search.js"></script>
+<p><img src="../../assets/images/ndarray.jpg" alt="ndarray.jpg" /></p>
+
+<h4 id="install-numpy">install numpy</h4>
+<p>การติดตั้งมีสามารถติดตั้งได้หลายวิธี แล้วแต่ระบบปฎิบัติการ
+ubuntu linux
+<a href="https://www.scipy.org/install.html">scipy.org</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython  python3-pandas python3-sympy python3-nose
+</code></pre></div></div>
+<p>Fedora</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install numpy scipy python-matplotlib ipython python-pandas sympy python-nose atlas-devel
+</code></pre></div></div>
+
+<p>ติดตั้งผ่าน pip</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo  pip3 install numpy
+
+</code></pre></div></div>
+
+<p>ตัวอย่างทดสอบ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+a = np.array([1,2,3])
+print(a)
+print(type(a))
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+
+a = np.array([1, 2, 3])   # Create a rank 1 array
+print(type(a))            # Prints "&lt;class 'numpy.ndarray'&gt;"
+print(a.shape)            # Prints "(3,)"
+print(a[0], a[1], a[2])   # Prints "1 2 3"
+a[0] = 5                  # Change an element of the array
+print(a)                  # Prints "[5, 2, 3]"
+
+b = np.array([[1,2,3],[4,5,6]])    # Create a rank 2 array
+print(b.shape)                     # Prints "(2, 3)"
+print(b[0, 0], b[0, 1], b[1, 0])   # Prints "1 2 4"
+</code></pre></div></div>
+
+<p>คำสั่งในการสร้าง Array</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+
+a = np.zeros((2,2))   # Create an array of all zeros
+print(a)              # Prints "[[ 0.  0.]
+                      #          [ 0.  0.]]"
+
+b = np.ones((1,2))    # Create an array of all ones
+print(b)              # Prints "[[ 1.  1.]]"
+
+c = np.full((2,2), 7)  # Create a constant array
+print(c)               # Prints "[[ 7.  7.]
+                       #          [ 7.  7.]]"
+
+d = np.eye(2)         # Create a 2x2 identity matrix
+print(d)              # Prints "[[ 1.  0.]
+                      #          [ 0.  1.]]"
+
+e = np.random.random((2,2))  # Create an array filled with random values
+print(e)                     # Might print "[[ 0.91940167  0.08143941]
+                             #               [ 0.68744134  0.87236687]]"
+</code></pre></div></div>
 
 </div>
-
       </div>
     </div>
 

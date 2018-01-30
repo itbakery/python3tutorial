@@ -722,7 +722,7 @@ printinfo( 10 )
 printinfo( 70, x=60, y=50 )
 ```
 
-#### การใช้ *args รวมกับ **kwargs
+#### การใช้ ``*args รวมกับ **kwargs``
 ```
 def example(arg1,arg2, *args, **kwargs):
     print(arg1)
@@ -733,4 +733,84 @@ def example(arg1,arg2, *args, **kwargs):
     return;
 
 example(1,2,3,4,x=1,y=2)
+```
+
+#### การใช้งาน underscore และ Double underscore
+-  ``_`` มองว่าเป็น private
+- ``__``  python จะเปลี่ยนชื่อ เป็น  ``_Test__baz`` เพื่อป้องกันไม่มีการ ชนกันกันของการใช้ชื่อ naming collision
+```
+class Test:
+   def __init__(self):
+      self.foo = 11
+      self._bar = 23
+      self.__baz = 42
+
+t = Test()
+t
+<__main__.Test object at 0x7efe87911a90>
+dir(t)
+['_Test__baz', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__',
+'__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__'
+, '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_bar', 'foo']
+
+t._bar
+23
+t._Test__baz
+42
+```
+
+## Run python File
+สร้าง file main.py
+```
+#!/usr/bin/python
+
+def main():
+   print("Module's name: {}".format(__name__))
+
+if __name__=='__main__':
+    main()
+```
+
+run
+```
+python main.py
+```
+ตัวอย่าง
+file: area.py
+```
+#!/usr/bin/python
+
+def cal_area(base, height):
+    print("Module's name: {}".format(__name__))
+    return base*height
+
+if __name__=='__main__':
+    area = cal_area(10,20)
+    print(area)
+```
+
+file: call_area.py
+```
+import area
+print(area.cal_area(10,20))
+```
+
+run
+```
+python cal_area.py
+Module's name: area
+200
+```
+
+- สรุปได้ว่า เมื่อมีการเรียกการใช้งาน module โดยตรง __name__ จะมีค่า  __main__
+- แต่หากมีการเรียกการใช้งานในลักษณะ import จะทำให้ค่าของ __name__ จะเป็นชื่อของ module
+
+โดย default นั้น ค่าของ ``__name__`` จะมีค่าเป็น __main__
+
+```
+Python 3.6.3 (default, Oct  3 2017, 21:45:48)
+[GCC 7.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> __name__
+'__main__'
 ```
