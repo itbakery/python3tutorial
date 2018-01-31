@@ -48,3 +48,4 @@ exclude:
 
 # Theme
 theme: "ed."
+highlighter: rouge

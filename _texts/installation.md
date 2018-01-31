@@ -53,3 +53,8 @@ ubuntu
 # apt install python3.6
 # python3 -v
 ```
+
+
+{% highlight python %}
+x = ('a', 1, False)
+{% endhighlight %}
