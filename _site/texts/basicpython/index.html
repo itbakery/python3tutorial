@@ -770,7 +770,7 @@ printinfo( 10 )
 printinfo( 70, x=60, y=50 )
 </code></pre></div></div>
 
-<h4 id="การใช้-args-รวมกับ-kwargs">การใช้ *args รวมกับ **kwargs</h4>
+<h4 id="การใช้-args-รวมกับ-kwargs">การใช้ <code class="highlighter-rouge">*args รวมกับ **kwargs</code></h4>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def example(arg1,arg2, *args, **kwargs):
     print(arg1)
     print(arg2)
@@ -781,6 +781,88 @@ printinfo( 70, x=60, y=50 )
 
 example(1,2,3,4,x=1,y=2)
 </code></pre></div></div>
+
+<h4 id="การใช้งาน-underscore-และ-double-underscore">การใช้งาน underscore และ Double underscore</h4>
+<ul>
+  <li><code class="highlighter-rouge">_</code> มองว่าเป็น private</li>
+  <li><code class="highlighter-rouge">__</code>  python จะเปลี่ยนชื่อ เป็น  <code class="highlighter-rouge">_Test__baz</code> เพื่อป้องกันไม่มีการ ชนกันกันของการใช้ชื่อ naming collision
+```
+class Test:
+ def <strong>init</strong>(self):
+    self.foo = 11
+    self._bar = 23
+    self.__baz = 42</li>
+</ul>
+
+<p>t = Test()
+t
+&lt;<strong>main</strong>.Test object at 0x7efe87911a90&gt;
+dir(t)
+[‘_Test__baz’, ‘<strong>class</strong>’, ‘<strong>delattr</strong>’, ‘<strong>dict</strong>’, ‘<strong>dir</strong>’, ‘<strong>doc</strong>’, ‘<strong>eq</strong>’, ‘<strong>format</strong>’, ‘<strong>ge</strong>’, ‘<strong>getattribute</strong>’, ‘<strong>gt</strong>’,
+‘<strong>hash</strong>’, ‘<strong>init</strong>’, ‘<strong>init_subclass</strong>’, ‘<strong>le</strong>’, ‘<strong>lt</strong>’, ‘<strong>module</strong>’, ‘<strong>ne</strong>’, ‘<strong>new</strong>’, ‘<strong>reduce</strong>’, ‘<strong>reduce_ex</strong>’, ‘<strong>repr</strong>’
+, ‘<strong>setattr</strong>’, ‘<strong>sizeof</strong>’, ‘<strong>str</strong>’, ‘<strong>subclasshook</strong>’, ‘<strong>weakref</strong>’, ‘_bar’, ‘foo’]</p>
+
+<p>t._bar
+23
+t._Test__baz
+42</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+## Run python File
+สร้าง file main.py
+</code></pre></div></div>
+<p>#!/usr/bin/python</p>
+
+<p>def main():
+   print(“Module’s name: {}”.format(<strong>name</strong>))</p>
+
+<p>if <strong>name</strong>==’<strong>main</strong>’:
+    main()</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+run
+</code></pre></div></div>
+<p>python main.py</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ตัวอย่าง
+file: area.py
+</code></pre></div></div>
+<p>#!/usr/bin/python</p>
+
+<p>def cal_area(base, height):
+    print(“Module’s name: {}”.format(<strong>name</strong>))
+    return base*height</p>
+
+<p>if <strong>name</strong>==’<strong>main</strong>’:
+    area = cal_area(10,20)
+    print(area)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+file: call_area.py
+</code></pre></div></div>
+<p>import area
+print(area.cal_area(10,20))</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+run
+</code></pre></div></div>
+<p>python cal_area.py
+Module’s name: area
+200</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- สรุปได้ว่า เมื่อมีการเรียกการใช้งาน module โดยตรง __name__ จะมีค่า  __main__
+- แต่หากมีการเรียกการใช้งานในลักษณะ import จะทำให้ค่าของ __name__ จะเป็นชื่อของ module
+
+โดย default นั้น ค่าของ ``__name__`` จะมีค่าเป็น __main__
+
+</code></pre></div></div>
+<p>Python 3.6.3 (default, Oct  3 2017, 21:45:48)
+[GCC 7.2.0] on linux
+Type “help”, “copyright”, “credits” or “license” for more information.</p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p><strong>name</strong>
+‘<strong>main</strong>’
+```</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
 
 </div>
       </div>
